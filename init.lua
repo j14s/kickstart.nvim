@@ -84,6 +84,21 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+-- Set my gopls to do import stuff
+vim.api.nvim_create_autocmd('BufWritePre', {
+  callback = function(args)
+    vim.lsp.buf.format()
+    vim.lsp.buf.code_action { context = { only = { 'source.organizeImports' } }, apply = true }
+    vim.lsp.buf.code_action { context = { only = { 'source.fixAll' } }, apply = true }
+  end,
+})
+
+-- Fucking set my tabs
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
