@@ -52,5 +52,5 @@ for _, mode in ipairs(enabledModes) do
   vim.keymap.set(mode, '<A-l>', '<Right>', { noremap = true, silent = true })
 end
 
-vim.keymap.set("n", ":", "<Plug>(cmdpalette)")
+-- vim.keymap.set("n", ":", "<Plug>(cmdpalette)")
 
