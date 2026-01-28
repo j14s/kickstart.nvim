@@ -360,12 +360,12 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim',
-        opts = {},
-        config = function(_, opts)
-          local fidget = require("fidget")
-          fidget.setup(opts)
-          vim.notify = fidget.notify
-        end },
+        opts = {
+          notification = {
+            override_vim_notify = true
+          },
+        },
+      },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -889,17 +889,17 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'custom.plugins.blink',
-  require 'custom.plugins.conform',
-  require 'custom.plugins.icons',
-  require 'custom.plugins.mini-ai',
-  require 'custom.plugins.mini-surround',
+  -- require 'custom.plugins.blink',
+  -- require 'custom.plugins.conform',
+  -- require 'custom.plugins.icons',
+  -- require 'custom.plugins.mini-ai',
+  -- require 'custom.plugins.mini-surround',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
