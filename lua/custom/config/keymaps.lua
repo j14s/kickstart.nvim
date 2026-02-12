@@ -22,6 +22,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Split map by jth
+-- Create splits and immediately switch to them
+vim.keymap.set('n', 'ss', ':split<CR><C-w>w', { noremap = true, silent = true })
+vim.keymap.set('n', 'sv', ':vsplit<CR><C-w>w', { noremap = true, silent = true })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
